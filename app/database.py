@@ -1,4 +1,4 @@
-import sqlalchemy import create_engine, MetaData
+from sqlalchemy import create_engine, MetaData
 import databases
 
 from app.config import DATABASE_URL
