@@ -8,3 +8,7 @@ keras
 torch
 joblib
 pydantic
+databases
+databases[postgresql]
+asyncpg
+sqlalchemy
