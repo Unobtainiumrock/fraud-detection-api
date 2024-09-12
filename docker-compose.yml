@@ -16,4 +16,10 @@ services:
     environment:
       - JUPYTER_ENABLE_LAB=yes
     user: root
-    command: /bin/bash -c "python -m ipykernel install --name=python3 --display-name 'Python 3.9' && jupyter lab --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token=''"
+    command: |
+      /bin/bash -c "
+      mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/apputils-extension &&
+      echo '{ \"theme\": \"JupyterLab Dark\" }' > ~/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings &&
+      python -m ipykernel install --name=python3 --display-name 'Python 3.9' &&
+      jupyter lab --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token=''
+      "
