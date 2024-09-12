@@ -94,6 +94,22 @@ We'll treat this as a hybrid problem in which anomaly detection is treated in an
 
 We'll try: `Random Cut Forest`, `One-Class SVM`, and `autoencoders`.
 
+More on why we'd opt for a `Random Cut Forest` as opposedd to an `Isolation Forest`:
+
+**Isolation Forest:** 
+  
+  - **How They work:** They work by building random binary decision trees, where each splot isolates data points by choosing a feature and a random threshold. Anomalies are isolated quickly since they tend to have distinct values compare to normal data points.
+  
+  - **Where They Excel:** These typically work well with tabluar data or data than can be described by a feature vector. While these are easy to understand and implement, they only tend to work best in traditional anomaly detection problems where the dataset has structured and static features. As we all know, this is essentially a game of cat and mouse where as more fraudsters get caught, they get wiser and develop different techniques by learning from the mistakes of others that came before them.
+
+**Random Cut Forest:** 
+
+  - **How They Work:** Instead of binary trees, RCF uses random hyperplane cuts to partition data. It then builds a forest of trees, where each tree represents a set of cuts. Anomalies are then characterizes as those that are easily isolated by fewer cuts. Since these cuts aren't constrained by a specific devision tree structure, they can capture more complex data distributions.
+   
+  - **Where they Excel:** These are more versatile and are better suited for high-dimensional data and time series data, especially real-time environments. They can be used where data distributions are complex and change over time. Its essentially better at detecting anomalies in evolving datasets, which is exactly what we have in this back and forth competition between evasion and detection.
+
+I can't stress enough the importance of opting for the `Random Cut Forest` approach. This type of model is critical in systems where we're required to continuously detect anomalies in real-time. Ultimately, this will come down to the data characteristics such as dimensionality and tabularity. This will be explored more in-depth in an EDA notebook.
+  
 ### Supervised Learning Methods to Explore (Fraud Detection)
 
 We'll try: `XGBoost`, `Logistic Regression`, and `Random Forest`
