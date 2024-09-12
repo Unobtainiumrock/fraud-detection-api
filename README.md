@@ -52,7 +52,9 @@ This can take awhile to run.
 
 # About the Data Set
 
-The dataset was taken from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download) (provided by ULB). note: The context and content sections were taken directly from there.
+The dataset was taken from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download).
+
+note: The context and content sections were taken directly from there.
 
 ## Context
 
