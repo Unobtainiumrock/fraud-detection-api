@@ -4,7 +4,7 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies, Node.js, and npm
 RUN apt-get update && apt-get install -y \
     gcc \
     g++ \
@@ -15,7 +15,11 @@ RUN apt-get update && apt-get install -y \
     gfortran \
     git \
     curl \
+    && curl -fsSL https://deb.nodesource.com/setup_16.x | bash - \
+    && apt-get install -y nodejs \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN npm install -g bash-language-server sql-language-server yaml-language-server typescript typescript-language-server
 
 # Copy the current directory contents into the container at /app
 COPY . /app
