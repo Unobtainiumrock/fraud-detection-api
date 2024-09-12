@@ -32,7 +32,7 @@ COPY requirements.txt /app/
 RUN pip install --no-cache-dir \
     jupyterlab \
     uvicorn \
-    ipykernel
+    ipykernel \
     -r requirements.txt
 
 # Add the Python 3.9 environment as a Jupyter kernel
