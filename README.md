@@ -55,6 +55,8 @@ This can take awhile to run.
 
 Create a real-time system that provides notifications for anomalies detected for credit card fraud using machine learning models. The system needs to be highly decoupled and it will contain both supervised and unsupervised learning aspects.
 
+The system will be tested out using data taken from Kaggle.
+
 # About the Data Set
 
 The dataset was taken from [Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud?resource=download).
