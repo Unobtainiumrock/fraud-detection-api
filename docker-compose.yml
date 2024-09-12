@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   app:
     build: .
@@ -9,10 +8,12 @@ services:
     command: uvicorn main:app --host 0.0.0.0 --port 8000
 
   jupyter:
-    image: jupyter/base-notebook
+    build: .
     ports:
       - "8888:8888"
     volumes:
-      - .:/home/jovyan/work
+      - .:/app
     environment:
       - JUPYTER_ENABLE_LAB=yes
+    user: root
+    command: /bin/bash -c "python -m ipykernel install --name=python3 --display-name 'Python 3.9' && jupyter lab --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token=''"
