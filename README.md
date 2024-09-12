@@ -75,5 +75,25 @@ Given the class imbalance ratio, we recommend measuring the accuracy using the A
 
 Some key points to take from the content description are that:
 
-1. **There is a class imbalance**: Fraudulent transactions are only $0.172$% of the dataset, so standard accuracy metrics (like confusion matrix accuracy) aren't useful. This is why we should strongly consider using the area under the precision recall curve (**AUPRC**) --it will focus on how well the model identifies fraud (positive class)
-2. **PCA-Transformed Features (V1-V28)**: These are numerical features, but since they've been transformed via PCA, we might not have direct interpretability regarding the original features. This should not affect the model's ability to learn from the data, but it may influence interpretability later on.
+1. **There is a class imbalance:** Fraudulent transactions are only $0.172$% of the dataset, so standard accuracy metrics (like confusion matrix accuracy) aren't useful. This is why we should strongly consider using the area under the precision recall curve (**AUPRC**) --it will focus on how well the model identifies fraud (positive class)
+2. **PCA-Transformed Features (V1-V28):** These are numerical features, but since they've been transformed via PCA, we might not have direct interpretability regarding the original features. This should not affect the model's ability to learn from the data, but it may influence interpretability later on.
+3. **Time & Amount:** These are two components that are non-PCA-transformed. They can play a critical role in cost-sensitive learning, where the amount of each transaction might influence the model's cost decisions.
+
+### Handling Class Imbalance
+
+This can be handled with different smapling techniques such as
+
+1. **SMOTE (Synthetic Minority Over-Sampling Technique):** This creates synthetic examples of the minority class (fraud) to balance the dataset.
+2. **Undersampling:** Reduce the number of non-fraud transactions to balance the classes.
+
+### Initial Approach
+
+We'll treat this as a hybrid problem in which anomaly detection is treated in an unsupervised learning manner and fraud detection is treated as a supervised learning problem.
+
+### Unsupervised Learning Methods to Explore (Anomaly Detection)
+
+We'll try: `Random Cut Forest`, `One-Class SVM`, and `autoencoders`.
+
+### Supervised Learning Methods to Explore (Fraud Detection)
+
+We'll try: `XGBoost`, `Logistic Regression`, and `Random Forest`
