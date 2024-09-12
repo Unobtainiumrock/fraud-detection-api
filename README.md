@@ -11,10 +11,11 @@ Windows, you're on your own here. It is recommended to use WSL2 (Windows Subsyst
 
 [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
 
-## Quick Setup Alternative for Ubuntu 20.0.4
+## Quick Setup Alternative for Ubuntu 20.0.4 (It's the only one I've tested)
+
+Do both the Docker and Docker Compose Installations.
 
 ### Docker Installation
-Alternatively, here's a quick Ubuntu 20.0.4 process to get Docker up. (It's the only one I've tested)
 
 ```
 sudo apt update
