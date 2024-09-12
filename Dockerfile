@@ -24,13 +24,19 @@ RUN npm install -g bash-language-server sql-language-server yaml-language-server
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+ENV PYTHON_EXECUTABLE=/usr/local/bin/python
+
 # Install Python dependencies
 COPY requirements.txt /app/
 # Install Jupyter and Uvicorn
 RUN pip install --no-cache-dir \
     jupyterlab \
     uvicorn \
+    ipykernel
     -r requirements.txt
+
+# Add the Python 3.9 environment as a Jupyter kernel
+RUN python -m ipykernel install --name=python3 --display-name "Python 3.9"
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
