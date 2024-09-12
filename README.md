@@ -7,11 +7,42 @@
 - **Note for Windows Users:**
 Windows, you're on your own here. It is recommended to use WSL2 (Windows Subsystem for Linux 2) to simplify the Docker installation and operation process. This approach is beneficial as it provides a Linux-like environment on Windows which is optimal for running Docker.
 
+## Docker Compose Installation
+
+[https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+
+## Quick Setup Alternative for Ubuntu 20.0.4
+
+### Docker Installation
+Alternatively, here's a quick Ubuntu 20.0.4 process to get Docker up. (It's the only one I've tested)
+
+```
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+sudo docker run hello-world # Checks that Docker is installed correctly
+sudo systemctl enable docker
+sudo systemctl status docker
+```
+
+### Docker Compose Installation
+
+```
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version # verify installation and version
+```
+
 # Bulding & Running the Docker Container
 
 `docker-compose up`
 
 This command will start all services defined in your `docker-compose.yml` file. Ensure that this file is set up correctly to define and configure services such as your FastAPI application and JupyterLab.
+This can take awhile to run.
 
 # Accessing Services
 
