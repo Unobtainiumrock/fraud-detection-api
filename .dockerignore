@@ -1,4 +1,6 @@
-__pycache__/
 .git/
-.venv/
+__pycache__/
+.dockerignore
+.env
+.vscode/
 .DS_Store
