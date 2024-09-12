@@ -7,10 +7,10 @@ import numpy as np
 app = FastAPI()
 
 class Transaction(BaseModel):
-    amount: float,
-    time: float,
-    type: str,
-    account_id: int,
+    amount: float
+    time: float
+    type: str
+    account_id: int
     location: str
 
 model = joblib.load('path_to_model.pkl')
