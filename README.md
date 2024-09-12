@@ -7,13 +7,7 @@
 - **Note for Windows Users:**
 Windows, you're on your own here. It is recommended to use WSL2 (Windows Subsystem for Linux 2) to simplify the Docker installation and operation process. This approach is beneficial as it provides a Linux-like environment on Windows which is optimal for running Docker.
 
-## Docker Compose Installation
-
-[https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
-
 ## Quick Setup Alternative for Ubuntu 20.0.4 (It's the only one I've tested)
-
-Do both the Docker and Docker Compose Installations.
 
 ### Docker Installation
 
@@ -30,20 +24,20 @@ sudo systemctl enable docker
 sudo systemctl status docker
 ```
 
-### Docker Compose Installation
-
-```
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version # verify installation and version
-```
-
 ## Bulding & Running the Docker Container
 
-`docker-compose up`
+`docker compose up --build`
 
 This command will start all services defined in your `docker-compose.yml` file. Ensure that this file is set up correctly to define and configure services such as your FastAPI application and JupyterLab.
 This can take awhile to run.
+
+### Env file
+
+You'll need to add a `.env` file to the `app` directory and place the following in it.
+
+```
+DATABASE_URL=sqlite:///./test.db  # Or use your actual database URL
+```
 
 # Accessing Services
 
