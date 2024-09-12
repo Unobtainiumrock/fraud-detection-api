@@ -25,4 +25,3 @@ async def predict(transaction: Transaction):
 # be easily accessed and utilized by other systems within Coinbase. This could involve
 # - Storing predictions in a database for further analysis
 # - Triggering alerts or workflows based on certain prediction thresholds.
-# trigger git tracking change.
