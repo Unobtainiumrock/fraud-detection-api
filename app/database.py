@@ -1,12 +1,12 @@
 from sqlalchemy import create_engine, MetaData
 import databases
 
-from app.config import DATABASE_URL
+from app.config import DATABASE_URL  # Import from config
 
-# Define your database URL (you can use PostgreSQL or SQLite)
-DATABASE_URL = "sqlite:///./test.db"
+# Create database instance and metadata
 database = databases.Database(DATABASE_URL)
 metadata = MetaData()
 
-engine = sqlalchemy.create_engine(DATABASE_URL)
+# Create engine and tables
+engine = create_engine(DATABASE_URL)
 metadata.create_all(engine)
