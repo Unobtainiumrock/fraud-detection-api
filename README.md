@@ -94,7 +94,7 @@ We'll treat this as a hybrid problem in which anomaly detection is treated in an
 
 We'll try: `Random Cut Forest`, `One-Class SVM`, and `autoencoders`.
 
-More on why we'd opt for a `Random Cut Forest` as opposedd to an `Isolation Forest`:
+More on why we'd opt for a `Random Cut Forest` as opposed to an `Isolation Forest`:
 
 **Isolation Forest:** 
   

@@ -13,3 +13,4 @@ databases[postgresql]
 asyncpg
 sqlalchemy
 python-dotenv
+aiosqlite
